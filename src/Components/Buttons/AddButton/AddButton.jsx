@@ -3,7 +3,7 @@ import { StyledButton, ButtonText } from './AddButton.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const GreenButton = () => {
+const AddButton = () => {
     return (
         <div>
             <StyledButton>
@@ -14,4 +14,4 @@ const GreenButton = () => {
     );
 };
 
-export default GreenButton;
+export default AddButton;

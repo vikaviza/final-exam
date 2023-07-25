@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
+import axios from "axios";
 import {Link} from 'react-router-dom';
 import AddButton from "../../Buttons/AddButton/AddButton";
 import {
@@ -7,6 +8,21 @@ import {
 } from './ContactList.style';
 
 const ContactList = () => {
+    const [clients, setClients] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/')
+        .then(result => setClients(result.data))
+        .catch(err => console.log(err))
+    }, [])
+
+    const handleDelete = (id) => {
+        axios.delete('http://localhost:3001/deleteClient/'+id)
+        .then(res => {console.log(res)
+            window.location.reload()})
+        .catch(errr => console.log(errr))
+    }
+
     return (
         <>
             <ContactSearch>
@@ -14,7 +30,7 @@ const ContactList = () => {
                 <AddContainer>
                     <h2>Add new client:</h2>
                     <Link to={'/contacts/add'}>
-                        <AddButton text='ADD +' /> 
+                        <AddButton /> 
                     </Link>
                 </AddContainer>
 
@@ -27,26 +43,28 @@ const ContactList = () => {
                     
             </ContactSearch>
             <section className="contactList">
-                
-                <div className="clientCard">
-                    <ul>
-                        <li>Name: <span>Client</span></li>
-                        <li>Surname: <span>Client</span></li>
-                        <li>Phone Number: <span>+37099999999</span></li>
-                        <li>Email: <span>client@email.com</span></li>
-                    </ul>
-
-                    <Link to={'/contacts/view/:contactId'}>
-                        <button>View</button>
-                    </Link>
-
-                    <Link to={'/contacts/edit/:contactId'}>
-                        <button>Edit</button>
-                    </Link>
+                {clients.map((client) => {
                     
-                    <button>Delete</button>
-                </div>
+                return <div className="clientCard">
+                        <ul>
+                            <li>Name: <span>{client.name}</span></li>
+                            <li>Surname: <span>{client.surname}</span></li>
+                            <li>Phone Number: <span>{client.mobile}</span></li>
+                            <li>Email: <span>{client.email}</span></li>
+                        </ul>
 
+                        <Link to={`/contacts/view/${client._id}`}>
+                            <button>View</button>
+                        </Link>
+
+                        <Link to={`/contacts/edit/${client._id}`}>
+                            <button>Edit</button>
+                        </Link>
+                        
+                        <button onClick={() => handleDelete(client._id)}>Delete</button>
+                    </div>
+                    })
+                }
             </section>
         </>
     )
