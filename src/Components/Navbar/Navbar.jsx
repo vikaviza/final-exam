@@ -20,11 +20,8 @@ const Navbar = () => {
                         <Brand>
                             Fest
                             <FontAwesomeIcon icon={faTruckField} style={{marginInline: '5px', color: '#2D2424'}} />
-                            <span>
-                                Travel
-                            </span>
+                            Travel
                         </Brand>
-                        
                     </Link>
                 </NavContainer>
             </nav>

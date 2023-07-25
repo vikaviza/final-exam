@@ -14,5 +14,5 @@ export const Brand = styled.div`
     font-family: 'Ysabeau SC', sans-serif;
     color: white;
     font-size: 35px;
-    padding-inline: 10px;
+    padding-inline: 35px;
 `;

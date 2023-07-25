@@ -1,22 +1,22 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquarePlus } from '@fortawesome/free-solid-svg-icons'
+import AddButton from "../../Buttons/AddButton/AddButton";
+import {
+    ContactSearch,
+    AddContainer
+} from './ContactList.style';
 
 const ContactList = () => {
     return (
         <>
-            <section className="contactSearch">
+            <ContactSearch>
 
-                <div className="addContainer">
-                    <h3>Add new client</h3>
+                <AddContainer>
+                    <h2>Add new client:</h2>
                     <Link to={'/contacts/add'}>
-                        <button>
-                        ADD 
-                        <FontAwesomeIcon icon={faSquarePlus} />
-                        </button>
+                        <AddButton text='ADD +' /> 
                     </Link>
-                </div>
+                </AddContainer>
 
                     <div className="searchContainer">
                         <form>
@@ -25,15 +25,28 @@ const ContactList = () => {
                         </form>
                     </div>
                     
-            </section>
+            </ContactSearch>
             <section className="contactList">
-                <table className="clientCard">
-                    <tr>
-                        <td>Name: <span>Client</span></td>
-                        <td>Mobile Number: <span>+37099999999</span></td>
-                        <td>Email: <span>client@email.com</span></td>
-                    </tr>
-                </table>
+                
+                <div className="clientCard">
+                    <ul>
+                        <li>Name: <span>Client</span></li>
+                        <li>Surname: <span>Client</span></li>
+                        <li>Phone Number: <span>+37099999999</span></li>
+                        <li>Email: <span>client@email.com</span></li>
+                    </ul>
+
+                    <Link to={'/contacts/view/:contactId'}>
+                        <button>View</button>
+                    </Link>
+
+                    <Link to={'/contacts/edit/:contactId'}>
+                        <button>Edit</button>
+                    </Link>
+                    
+                    <button>Delete</button>
+                </div>
+
             </section>
         </>
     )
