@@ -44,21 +44,25 @@ const EditContact = () => {
                         <input 
                             type="text" 
                             placeholder="Name" 
+                            pattern="[A-Z][a-z]+"
                             value={name} 
                             onChange={(e) => setName(e.target.value)}/>
                         <input 
                             type="text" 
                             placeholder="Surname" 
+                            pattern="[A-Z][a-z]+"
                             value={surname} 
                             onChange={(e) => setSurname(e.target.value)}/>
                         <input 
                             type="number" 
                             placeholder="Age" 
+                            maxlength="2" min="18"
                             value={age} 
                             onChange={(e) => setAge(e.target.value)}/>
                         <input 
                             type="tel" 
                             placeholder="Phone Number" 
+                            maxlength="12"
                             value={mobile} 
                             onChange={(e) => setMobile(e.target.value)}/>
                         <input 
