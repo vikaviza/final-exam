@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const element = styled.div`
-
+export const ViewContactSection = styled.section`
+    height: 100%;
 `;

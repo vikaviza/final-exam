@@ -12,7 +12,7 @@ const AddContact = () => {
 
     const Submit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/addClient", {name, surname, age, mobile, email})
+        axios.post("http://localhost:3001/addClient/", {name, surname, age, mobile, email})
         .then(result => {
             console.log(result)
             navigate('/')
@@ -47,7 +47,7 @@ const AddContact = () => {
                         <input 
                             type="number" 
                             placeholder="Age" 
-                            maxlength="2" 
+                            max="120" 
                             min="18" 
                             onChange={(e) => setAge(e.target.value)} 
                             required
@@ -55,8 +55,9 @@ const AddContact = () => {
                         <input 
                             type="tel" 
                             placeholder="Phone Number" 
-                            minlength="12" 
-                            maxlength="12" onChange={(e) => setMobile(e.target.value)} 
+                            minLength="12" 
+                            maxLength="12" 
+                            onChange={(e) => setMobile(e.target.value)} 
                             required
                         />
                         <input 

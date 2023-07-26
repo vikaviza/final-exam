@@ -2,6 +2,7 @@ import React from 'react';
 import GlobalStyles from './styles/Global.style';
 import { Routes, Route, Navigate} from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer';
 import ContactList from './Components/Contacts/ContactList/ContactList';
 import AddContact from './Components/Contacts/AddContact/AddContact';
 import ViewContact from './Components/Contacts/ViewContact/ViewContact';
@@ -10,7 +11,7 @@ import EditContact from './Components/Contacts/EditContact/EditContact';
 
 const App = () => {
     return (
-      <div className="App">
+      <>
         <GlobalStyles />
         <Navbar />
         <Routes>
@@ -20,7 +21,8 @@ const App = () => {
           <Route path={'/contacts/view/:id'} element={<ViewContact/>} />
           <Route path={'/contacts/edit/:id'} element={<EditContact/>} />
         </Routes>
-      </div>
+        <Footer />
+      </>
     );
 
 }

@@ -60,7 +60,8 @@ const EditContact = () => {
                         <input 
                             type="number" 
                             placeholder="Age" 
-                            maxlength="2" min="18"
+                            max="120" 
+                            min="18" 
                             value={age} 
                             onChange={(e) => setAge(e.target.value)}
                             required
