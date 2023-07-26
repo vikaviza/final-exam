@@ -26,7 +26,6 @@ const ContactList = () => {
     return (
         <>
             <ContactSearch>
-
                 <AddContainer>
                     <h2>Add new client:</h2>
                     <Link to={'/contacts/add'}>
@@ -40,8 +39,8 @@ const ContactList = () => {
                             <input type="submit" className="searchSubmit" value="Search"/>
                         </form>
                     </div>
-                    
             </ContactSearch>
+
             <section className="contactList">
                 {clients.map((client) => {
                     
@@ -50,7 +49,6 @@ const ContactList = () => {
                             <li>Name: <span>{client.name}</span></li>
                             <li>Surname: <span>{client.surname}</span></li>
                             <li>Phone Number: <span>{client.mobile}</span></li>
-                            <li>Email: <span>{client.email}</span></li>
                         </ul>
 
                         <Link to={`/contacts/view/${client._id}`}>

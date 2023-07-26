@@ -1,15 +1,27 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 const ViewContact = () => {
-    const [clients, setClients] = useState([])
+    const {id} = useParams()
+    const [name, setName] = useState()
+    const [surname, setSurname] = useState()
+    const [age, setAge] = useState()
+    const [mobile, setMobile] = useState()
+    const [email, setEmail] = useState()
 
     useEffect(() => {
-        axios.get('http://localhost:3001/')
-        .then(result => setClients(result.data))
+        axios.get('http://localhost:3001/getClient/' + id)
+        .then(result => {console.log(result)
+            setName(result.data.name)
+            setSurname(result.data.surname)
+            setAge(result.data.age)
+            setMobile(result.data.mobile)
+            setEmail(result.data.email)
+        })
         .catch(err => console.log(err))
     }, [])
+
     return (
         <>
             <section className="viewContact">
@@ -17,20 +29,17 @@ const ViewContact = () => {
                     <h2>View Contact</h2>
                 </div>
             </section>
-            {clients.map((client) => {
-                    
 
-            return <div className="contactCard">
+             <div className="contactCard">
                 <ul>
-                    <li>Name: <span>{client.name}</span></li>
-                    <li>Surname: <span>{client.surname}</span></li>
-                    <li>Age: <span>{client.age}</span></li>
-                    <li>Phone Number: <span>{client.mobile}</span></li>
-                    <li>Email: <span>{client.email}</span></li>
+                    <li>Name: <span>{name}</span></li>
+                    <li>Surname: <span>{surname}</span></li>
+                    <li>Age: <span>{age}</span></li>
+                    <li>Phone Number: <span>{mobile}</span></li>
+                    <li>Email: <span>{email}</span></li>
                 </ul>
             </div>
-            })
-        }
+
             <Link to={'/contacts/list'}>
                 <button>Close</button>
             </Link>
