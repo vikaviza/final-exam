@@ -46,31 +46,43 @@ const EditContact = () => {
                             placeholder="Name" 
                             pattern="[A-Z][a-z]+"
                             value={name} 
-                            onChange={(e) => setName(e.target.value)}/>
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
                         <input 
                             type="text" 
                             placeholder="Surname" 
                             pattern="[A-Z][a-z]+"
                             value={surname} 
-                            onChange={(e) => setSurname(e.target.value)}/>
+                            onChange={(e) => setSurname(e.target.value)}
+                            required
+                        />
                         <input 
                             type="number" 
                             placeholder="Age" 
                             maxlength="2" min="18"
                             value={age} 
-                            onChange={(e) => setAge(e.target.value)}/>
+                            onChange={(e) => setAge(e.target.value)}
+                            required
+                        />
                         <input 
                             type="tel" 
                             placeholder="Phone Number" 
                             maxlength="12"
                             value={mobile} 
-                            onChange={(e) => setMobile(e.target.value)}/>
+                            onChange={(e) => setMobile(e.target.value)}
+                            required
+                        />
                         <input 
                             type="email" 
                             placeholder="Email" 
                             value={email} 
-                            onChange={(e) => setEmail(e.target.value)}/>
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+
                         <button>Submit</button>
+                        
                         <Link to={'/contacts/list'}>
                             <button>Close</button>
                         </Link>

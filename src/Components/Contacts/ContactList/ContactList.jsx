@@ -9,6 +9,7 @@ import {
 
 const ContactList = () => {
     const [clients, setClients] = useState([])
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         axios.get('http://localhost:3001/')
@@ -35,16 +36,21 @@ const ContactList = () => {
 
                     <div className="searchContainer">
                         <form>
-                            <input type="text" className="form-control" placeholder="Search Clients" />
-                            <input type="submit" className="searchSubmit" value="Search"/>
+                            <input 
+                            name="text"
+                            type="text"
+                            placeholder="Search Clients" 
+                            onChange={e => setQuery(e.target.value)}
+                            />
+                            
                         </form>
                     </div>
             </ContactSearch>
 
             <section className="contactList">
-                {clients.map((client) => {
+                {clients.filter(client=>client.name.toLowerCase().includes(query)).map((client) => {
                     
-                return <div className="clientCard">
+                return <div  className="clientCard">
                         <ul>
                             <li>Name: <span>{client.name}</span></li>
                             <li>Surname: <span>{client.surname}</span></li>
