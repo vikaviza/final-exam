@@ -38,6 +38,7 @@ const EditContact = () => {
                 <div className="editContactContainer">
                     <h2>Edit Contact</h2>
                 </div>
+
                 <div className="editformContainer">
                     <form onSubmit={Edit}>
                         <input 
@@ -56,7 +57,7 @@ const EditContact = () => {
                             value={age} 
                             onChange={(e) => setAge(e.target.value)}/>
                         <input 
-                            type="number" 
+                            type="tel" 
                             placeholder="Phone Number" 
                             value={mobile} 
                             onChange={(e) => setMobile(e.target.value)}/>
