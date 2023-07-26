@@ -30,11 +30,42 @@ const AddContact = () => {
                 <div className="addformContainer">
                     <form onSubmit={Submit}>
                         
-                        <input type="text" placeholder="Name" pattern="[A-Z][a-z]+" onChange={(e) => setName(e.target.value)}/>
-                        <input type="text" placeholder="Surname" pattern="[A-Z][a-z]+" onChange={(e) => setSurame(e.target.value)}/>
-                        <input type="number" placeholder="Age" maxlength="2" min="18" onChange={(e) => setAge(e.target.value)}/>
-                        <input type="tel" placeholder="Phone Number" maxlength="12" onChange={(e) => setMobile(e.target.value)}/>
-                        <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                        <input 
+                            type="text" 
+                            placeholder="Name" 
+                            pattern="[A-Z][a-z]+" 
+                            onChange={(e) => setName(e.target.value)} 
+                            required
+                        />
+                        <input 
+                            type="text" 
+                            placeholder="Surname" 
+                            pattern="[A-Z][a-z]+" 
+                            onChange={(e) => setSurame(e.target.value)} 
+                            required
+                        />
+                        <input 
+                            type="number" 
+                            placeholder="Age" 
+                            maxlength="2" 
+                            min="18" 
+                            onChange={(e) => setAge(e.target.value)} 
+                            required
+                        />
+                        <input 
+                            type="tel" 
+                            placeholder="Phone Number" 
+                            minlength="12" 
+                            maxlength="12" onChange={(e) => setMobile(e.target.value)} 
+                            required
+                        />
+                        <input 
+                            type="email" 
+                            placeholder="Email" 
+                            onChange={(e) => setEmail(e.target.value)} 
+                            required
+                        />
+                        
                         <button>Submit</button>
                         
                         <Link to={'/contacts/list'}>
