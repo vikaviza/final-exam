@@ -30,10 +30,10 @@ const AddContact = () => {
                 <div className="addformContainer">
                     <form onSubmit={Submit}>
                         
-                        <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}/>
-                        <input type="text" placeholder="Surname" onChange={(e) => setSurame(e.target.value)}/>
-                        <input type="number" placeholder="Age" onChange={(e) => setAge(e.target.value)}/>
-                        <input type="tel" placeholder="Phone Number" onChange={(e) => setMobile(e.target.value)}/>
+                        <input type="text" placeholder="Name" pattern="[A-Z][a-z]+" onChange={(e) => setName(e.target.value)}/>
+                        <input type="text" placeholder="Surname" pattern="[A-Z][a-z]+" onChange={(e) => setSurame(e.target.value)}/>
+                        <input type="number" placeholder="Age" maxlength="2" min="18" onChange={(e) => setAge(e.target.value)}/>
+                        <input type="tel" placeholder="Phone Number" maxlength="12" onChange={(e) => setMobile(e.target.value)}/>
                         <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                         <button>Submit</button>
                         
