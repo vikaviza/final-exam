@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import * as color from '../styles/ColorPalette';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -8,12 +9,21 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
     }
 
-    body {
-        max-width: 1920px;
+
+    div#root {
         height: 100vh;
+        display: block;
+    }
+    body {
+        
+        max-width: 1920px;
+        min-width: 670px;
+        min-height: 100vh;
         width: 100vw;
+        overflow-x: hidden;
         margin: 0 auto;
         font-family: 'Roboto', sans-serif;
+        background: ${color.primary};
 }
 `;
 

@@ -7,8 +7,8 @@ const AddButton = () => {
     return (
         <div>
             <StyledButton>
-                <ButtonText>ADD</ButtonText>
-                <FontAwesomeIcon icon={faPlus} style={{color: 'white', paddingLeft: '3px'}} />
+                <ButtonText>ADD NEW CLIENT</ButtonText>
+                <FontAwesomeIcon icon={faPlus} style={{color: 'white', paddingLeft: '10px', fontSize: '20px'}} />
             </StyledButton>
         </div>
     );

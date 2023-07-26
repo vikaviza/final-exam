@@ -2,9 +2,22 @@ import React, { useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import AddButton from "../../Buttons/AddButton/AddButton";
+import ViewButton from "../../Buttons/ViewButton/ViewButton";
+import EditButton from "../../Buttons/EditButton/EditButton";
+import DeleteButton from "../../Buttons/DeleteButton/DeleteButton";
 import {
+    ContactContainer,
     ContactSearch,
-    AddContainer
+    AddContainer,
+    About,
+    SearchContainer,
+    SearchInput,
+    ContactListSection,
+    ClientCard,
+    ClientUl,
+    ClientListItem,
+    ClientSpan,
+    ClientButtons
 } from './ContactList.style';
 
 const ContactList = () => {
@@ -26,50 +39,56 @@ const ContactList = () => {
 
     return (
         <>
-            <ContactSearch>
-                <AddContainer>
-                    <h2>Add new client:</h2>
-                    <Link to={'/contacts/add'}>
-                        <AddButton /> 
-                    </Link>
-                </AddContainer>
-
-                    <div className="searchContainer">
-                        <form>
-                            <input 
-                            name="text"
-                            type="text"
-                            placeholder="Search Clients" 
-                            onChange={e => setQuery(e.target.value)}
-                            />
-                            
-                        </form>
-                    </div>
-            </ContactSearch>
-
-            <section className="contactList">
-                {clients.filter(client=>client.name.toLowerCase().includes(query)).map((client) => {
-                    
-                return <div  className="clientCard">
-                        <ul>
-                            <li>Name: <span>{client.name}</span></li>
-                            <li>Surname: <span>{client.surname}</span></li>
-                            <li>Phone Number: <span>{client.mobile}</span></li>
-                        </ul>
-
-                        <Link to={`/contacts/view/${client._id}`}>
-                            <button>View</button>
+        <ContactContainer>
+                <ContactSearch>
+                    <AddContainer>
+                        <About>
+                            <p>To visit a country and meet its people during a festival can be an experience second to none: you will bring home not just life-long memories of colour, music, dancing and fun but also a richer understanding of the traditions and beliefs that make the country what it is.</p>
+                        </About>
+                        <Link to={'/contacts/add'} >
+                            <AddButton /> 
                         </Link>
+                    </AddContainer>
 
-                        <Link to={`/contacts/edit/${client._id}`}>
-                            <button>Edit</button>
-                        </Link>
+                        <SearchContainer>
+                            <form>
+                                <SearchInput 
+                                name="text"
+                                type="text"
+                                placeholder="Search for Clients..." 
+                                onChange={e => setQuery(e.target.value)}
+                                />
+
+                            </form>
+                        </SearchContainer>
+                </ContactSearch>
+
+                <ContactListSection>
+                    {clients.filter(client=>client.name.includes(query)).map((client) => {
                         
-                        <button onClick={() => handleDelete(client._id)}>Delete</button>
-                    </div>
-                    })
-                }
-            </section>
+                    return <ClientCard>
+                            <ClientUl>
+                                <ClientListItem>Name: <ClientSpan>{client.name}</ClientSpan></ClientListItem>
+                                <ClientListItem>Surname: <ClientSpan>{client.surname}</ClientSpan></ClientListItem>
+                                <ClientListItem>Phone Number: <ClientSpan>{client.mobile}</ClientSpan></ClientListItem>
+                            </ClientUl>
+
+                            <ClientButtons>
+                                <Link to={`/contacts/view/${client._id}`}>
+                                    <ViewButton />
+                                </Link>
+
+                                <Link to={`/contacts/edit/${client._id}`}>
+                                    <EditButton />
+                                </Link>
+
+                                <button onClick={() => handleDelete(client._id)} style={{background: 'transparent', border: '0'}}><DeleteButton /></button>
+                            </ClientButtons>
+                        </ClientCard>
+                        })
+                    }
+                </ContactListSection>
+            </ContactContainer>
         </>
     )
 };

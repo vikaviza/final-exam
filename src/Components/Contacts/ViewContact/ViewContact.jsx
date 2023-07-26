@@ -1,6 +1,9 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
 import {Link, useParams} from 'react-router-dom';
+import {
+    ViewContactSection
+} from './ViewContact.style'
 
 const ViewContact = () => {
     const {id} = useParams()
@@ -24,11 +27,11 @@ const ViewContact = () => {
 
     return (
         <>
-            <section className="viewContact">
+            <ViewContactSection>
                 <div className="viewContact">
                     <h2>View Contact</h2>
                 </div>
-            </section>
+            
 
              <div className="contactCard">
                 <ul>
@@ -43,6 +46,7 @@ const ViewContact = () => {
             <Link to={'/contacts/list'}>
                 <button>Close</button>
             </Link>
+            </ViewContactSection>
         </>
     )
 };
