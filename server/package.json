@@ -1,9 +1,12 @@
 {
+  "homepage": "http://vikaviza.github.io/final-exam",
   "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -14,5 +17,8 @@
     "express": "^4.18.2",
     "mongoose": "^7.4.1",
     "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
