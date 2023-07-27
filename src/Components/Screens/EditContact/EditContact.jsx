@@ -65,7 +65,6 @@ const EditContact = () => {
                         />
                         <EditInput 
                             type="date" 
-                            placeholder="Birthdate"
                             onChange={(e) => setAge(e.target.value)}
                             required
                         />
