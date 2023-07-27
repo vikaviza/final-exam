@@ -15,7 +15,7 @@ const EditContact = () => {
     const {id} = useParams()
     const [name, setName] = useState()
     const [surname, setSurname] = useState()
-    const [age, setAge] = useState()
+    const [birthdate, setBirthdate] = useState()
     const [mobile, setMobile] = useState()
     const [email, setEmail] = useState()
     const navigate = useNavigate()
@@ -34,7 +34,7 @@ const EditContact = () => {
 
     const Edit = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:3001/editClient/" + id, {name, surname, age, mobile, email})
+        axios.put("http://localhost:3001/editClient/" + id, {name, surname, birthdate, mobile, email})
         .then(result => {
             console.log(result)
             navigate('/')
@@ -64,11 +64,7 @@ const EditContact = () => {
                             required
                         />
                         <EditInput 
-                            type="number" 
-                            placeholder="Age" 
-                            max="120" 
-                            min="18" 
-                            value={age} 
+                            type="date" 
                             onChange={(e) => setAge(e.target.value)}
                             required
                         />
