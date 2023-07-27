@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/final-exam/static/css/main.e6c13ad2.css",
+    "main.js": "/final-exam/static/js/main.804ea974.js",
+    "static/js/787.5020565c.chunk.js": "/final-exam/static/js/787.5020565c.chunk.js",
+    "static/media/palm-tree.svg": "/final-exam/static/media/palm-tree.3b6aa47324644a57471b12d954eb277f.svg",
+    "index.html": "/final-exam/index.html",
+    "main.e6c13ad2.css.map": "/final-exam/static/css/main.e6c13ad2.css.map",
+    "main.804ea974.js.map": "/final-exam/static/js/main.804ea974.js.map",
+    "787.5020565c.chunk.js.map": "/final-exam/static/js/787.5020565c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.804ea974.js"
+  ]
+}
