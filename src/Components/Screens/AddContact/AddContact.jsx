@@ -51,7 +51,6 @@ const AddContact = () => {
                         />
                         <AddInput 
                             type="date" 
-                            placeholder="Birthdate" 
                             onChange={(e) => setBirthdate(e.target.value)} 
                             required
                         />
