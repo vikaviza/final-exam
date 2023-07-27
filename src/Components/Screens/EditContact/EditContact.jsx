@@ -65,7 +65,7 @@ const EditContact = () => {
                         />
                         <EditInput 
                             type="date" 
-                            onChange={(e) => setAge(e.target.value)}
+                            onChange={(e) => setBirthdate(e.target.value)}
                             required
                         />
                         <EditInput 
