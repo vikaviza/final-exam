@@ -25,7 +25,7 @@ const EditContact = () => {
         .then(result => {console.log(result)
             setName(result.data.name)
             setSurname(result.data.surname)
-            setAge(result.data.age)
+            setBirthdate(result.data.birthdate)
             setMobile(result.data.mobile)
             setEmail(result.data.email)
         })
