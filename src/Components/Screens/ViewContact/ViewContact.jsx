@@ -19,7 +19,7 @@ const ViewContact = () => {
     const {id} = useParams()
     const [name, setName] = useState()
     const [surname, setSurname] = useState()
-    const [age, setAge] = useState()
+    const [birthdate, setBirthdate] = useState()
     const [mobile, setMobile] = useState()
     const [email, setEmail] = useState()
 
@@ -28,7 +28,7 @@ const ViewContact = () => {
         .then(result => {console.log(result)
             setName(result.data.name)
             setSurname(result.data.surname)
-            setAge(result.data.age)
+            setBirthdate(result.data.birthdate)
             setMobile(result.data.mobile)
             setEmail(result.data.email)
         })
@@ -51,7 +51,7 @@ const ViewContact = () => {
                 <ViewContactUl>
                     <ViewContactli>Name: <ViewContactSpan>{name}</ViewContactSpan></ViewContactli>
                     <ViewContactli>Surname: <ViewContactSpan>{surname}</ViewContactSpan></ViewContactli>
-                    <ViewContactli>Age: <ViewContactSpan>{age}</ViewContactSpan></ViewContactli>
+                    <ViewContactli>Birthdate: <ViewContactSpan>{birthdate}</ViewContactSpan></ViewContactli>
                     <ViewContactli>Phone Number: <ViewContactSpan>{mobile}</ViewContactSpan></ViewContactli>
                     <ViewContactli>Email: <ViewContactSpan>{email}</ViewContactSpan></ViewContactli>
                 </ViewContactUl>

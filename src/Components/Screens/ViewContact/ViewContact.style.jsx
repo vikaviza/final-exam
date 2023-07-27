@@ -56,6 +56,7 @@ export const ViewContactli = styled.li`
     display: flex;
     justify-content: space-between;
     padding-inline: 10px;
+    gap: 50px;
 `;
 
 export const ViewContactSpan = styled.span`

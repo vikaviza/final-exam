@@ -27,7 +27,7 @@ app.put('/editClient/:id', (req, res) => {
     ClientModel.findByIdAndUpdate({_id: id}, {
     name: req.body.name, 
     surname: req.body.surname, 
-    age: req.body.age, 
+    birthdate: req.body.birthdate, 
     mobile: req.body.mobile, 
     email: req.body.email})
     .then(clients => res.json(clients))
