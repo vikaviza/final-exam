@@ -3,10 +3,10 @@ import GlobalStyles from './styles/Global.style';
 import { Routes, Route, Navigate} from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-import ContactList from './Components/Contacts/ContactList/ContactList';
-import AddContact from './Components/Contacts/AddContact/AddContact';
-import ViewContact from './Components/Contacts/ViewContact/ViewContact';
-import EditContact from './Components/Contacts/EditContact/EditContact';
+import ContactList from './Components/Screens/ContactList/ContactList';
+import AddContact from './Components/Screens/AddContact/AddContact';
+import ViewContact from './Components/Screens/ViewContact/ViewContact';
+import EditContact from './Components/Screens/EditContact/EditContact';
 
 
 const App = () => {

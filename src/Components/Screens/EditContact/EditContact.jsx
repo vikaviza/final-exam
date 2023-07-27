@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import  CloseButton from '../../Buttons/CloseButton/CloseButton';
+import  SubmitButton from '../../Buttons/SubmitButton/SubmitButton';
+import {
+    EditContactSection,
+    EditformContainer,
+    EditForm,
+    EditInput,
+    EditButtonContainer
+} from './EditContact.style';
 
 const EditContact = () => {
     const {id} = useParams()
@@ -34,14 +43,11 @@ const EditContact = () => {
     }
     return (
         <>
-            <section className="editContact">
-                <div className="editContactContainer">
-                    <h2>Edit Contact</h2>
-                </div>
+            <EditContactSection>
 
-                <div className="editformContainer">
-                    <form onSubmit={Edit}>
-                        <input 
+                <EditformContainer>
+                    <EditForm onSubmit={Edit}>
+                        <EditInput 
                             type="text" 
                             placeholder="Name" 
                             pattern="[A-Z][a-z]+"
@@ -49,7 +55,7 @@ const EditContact = () => {
                             onChange={(e) => setName(e.target.value)}
                             required
                         />
-                        <input 
+                        <EditInput 
                             type="text" 
                             placeholder="Surname" 
                             pattern="[A-Z][a-z]+"
@@ -57,7 +63,7 @@ const EditContact = () => {
                             onChange={(e) => setSurname(e.target.value)}
                             required
                         />
-                        <input 
+                        <EditInput 
                             type="number" 
                             placeholder="Age" 
                             max="120" 
@@ -66,7 +72,7 @@ const EditContact = () => {
                             onChange={(e) => setAge(e.target.value)}
                             required
                         />
-                        <input 
+                        <EditInput 
                             type="tel" 
                             placeholder="Phone Number" 
                             maxlength="12"
@@ -74,22 +80,24 @@ const EditContact = () => {
                             onChange={(e) => setMobile(e.target.value)}
                             required
                         />
-                        <input 
+                        <EditInput 
                             type="email" 
                             placeholder="Email" 
                             value={email} 
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
+                        <EditButtonContainer>
+                        <SubmitButton/>
+                            
+                            <Link to={'/contacts/list'}>
+                                <CloseButton />
+                            </Link>
+                        </EditButtonContainer>
 
-                        <button>Submit</button>
-                        
-                        <Link to={'/contacts/list'}>
-                            <button>Close</button>
-                        </Link>
-                    </form>
-                </div>
-            </section>
+                    </EditForm>
+                </EditformContainer>
+            </EditContactSection>
         </>
     )
 };

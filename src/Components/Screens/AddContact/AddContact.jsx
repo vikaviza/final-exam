@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import  CloseButton from '../../Buttons/CloseButton/CloseButton';
+import  SubmitButton from '../../Buttons/SubmitButton/SubmitButton';
 import axios from "axios";
+import {
+    AddContactSection,
+    AddFormContainer,
+    AddForm,
+    AddInput,
+    AddButtonContainer
+} from './AddContact.style';
 
 const AddContact = () => {
     const [name, setName] = useState()
@@ -22,29 +31,25 @@ const AddContact = () => {
 
     return (
         <>
-            <section className="addContact">
-                <div className="addContactContainer">
-                    <h2>Create Contact</h2>
-                </div>
-
-                <div className="addformContainer">
-                    <form onSubmit={Submit}>
+            <AddContactSection>
+                <AddFormContainer>
+                    <AddForm onSubmit={Submit}>
                         
-                        <input 
+                        <AddInput 
                             type="text" 
                             placeholder="Name" 
                             pattern="[A-Z][a-z]+" 
                             onChange={(e) => setName(e.target.value)} 
                             required
                         />
-                        <input 
+                        <AddInput 
                             type="text" 
                             placeholder="Surname" 
                             pattern="[A-Z][a-z]+" 
                             onChange={(e) => setSurame(e.target.value)} 
                             required
                         />
-                        <input 
+                        <AddInput 
                             type="number" 
                             placeholder="Age" 
                             max="120" 
@@ -52,7 +57,7 @@ const AddContact = () => {
                             onChange={(e) => setAge(e.target.value)} 
                             required
                         />
-                        <input 
+                        <AddInput 
                             type="tel" 
                             placeholder="Phone Number" 
                             minLength="12" 
@@ -60,21 +65,23 @@ const AddContact = () => {
                             onChange={(e) => setMobile(e.target.value)} 
                             required
                         />
-                        <input 
+                        <AddInput 
                             type="email" 
                             placeholder="Email" 
                             onChange={(e) => setEmail(e.target.value)} 
                             required
                         />
-                        
-                        <button>Submit</button>
-                        
-                        <Link to={'/contacts/list'}>
-                            <button>Close</button>
-                        </Link>
-                    </form>
-                </div>
-            </section>
+                        <AddButtonContainer>
+                            <SubmitButton/>
+                            
+                            <Link to={'/contacts/list'}>
+                                <CloseButton />
+                            </Link>
+                        </AddButtonContainer>
+
+                    </AddForm>
+                </AddFormContainer>
+            </AddContactSection>
         </>
     )
 };

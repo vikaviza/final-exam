@@ -64,9 +64,10 @@ const ContactList = () => {
                 </ContactSearch>
 
                 <ContactListSection>
-                    {clients.filter(client=>client.name.includes(query)).map((client) => {
+                    {
+                    clients.filter(client=>client.name.includes(query)).map((client) => {
                         
-                    return <ClientCard>
+                return <ClientCard>
                             <ClientUl>
                                 <ClientListItem>Name: <ClientSpan>{client.name}</ClientSpan></ClientListItem>
                                 <ClientListItem>Surname: <ClientSpan>{client.surname}</ClientSpan></ClientListItem>

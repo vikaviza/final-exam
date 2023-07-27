@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ReactComponent as PalmTree } from '../../addons/images/palm-tree.svg'
 
 export const Earth = styled.div`
-    position: sticky;
+    
     bottom: 45px;
     width: 100%;
     max-width: 1920px;
@@ -31,10 +31,10 @@ export const PalmSpan = styled.span`
 
 export const FooterContainer = styled.div`
     position: sticky;
-    bottom: -15px;
+    margin: 0;
     width: 100%;
     max-width: 1920px;
-    height: 70px;
+    height: 67px;
     background: #2D2424;
     box-shadow: 0px -10px 15px 6px #2D2424;
     display: flex;

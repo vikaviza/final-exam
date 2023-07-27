@@ -3,7 +3,7 @@ import * as color from '../../../styles/ColorPalette';
 import { devices } from "../../../styles/QuariesBreakpoints"
 
 export const ContactContainer = styled.section`
-    min-height: 70vh;   
+    min-height: calc(100vh - 345px);  
     display: block;
 `;
 
@@ -69,7 +69,6 @@ export const ClientUl = styled.ul`
     border-radius: 0 12px 0 0;
     font-weight: 400;
 `;
-
 
 export const ClientListItem = styled.li`
     border-bottom: 1px solid ${color.darkGreen};
