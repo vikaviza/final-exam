@@ -16,6 +16,7 @@ const App = () => {
         <GlobalStyles />
         <Navbar />
         <Router>
+          Test
           <Routes>
             <Route path={'/'} element={<Navigate to={'/contacts/list'}/>}/>
             <Route path={'/contacts/list'} element={<ContactList/>} />
