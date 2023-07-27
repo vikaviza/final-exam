@@ -14,14 +14,14 @@ import {
 const AddContact = () => {
     const [name, setName] = useState()
     const [surname, setSurame] = useState()
-    const [age, setAge] = useState()
+    const [birthdate, setBirthdate] = useState()
     const [mobile, setMobile] = useState()
     const [email, setEmail] = useState()
     const navigate = useNavigate()
 
     const Submit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/addClient/", {name, surname, age, mobile, email})
+        axios.post("http://localhost:3001/addClient/", {name, surname, birthdate, mobile, email})
         .then(result => {
             console.log(result)
             navigate('/')
@@ -50,11 +50,9 @@ const AddContact = () => {
                             required
                         />
                         <AddInput 
-                            type="number" 
-                            placeholder="Age" 
-                            max="120" 
-                            min="18" 
-                            onChange={(e) => setAge(e.target.value)} 
+                            type="date" 
+                            placeholder="Birthdate" 
+                            onChange={(e) => setBirthdate(e.target.value)} 
                             required
                         />
                         <AddInput 
